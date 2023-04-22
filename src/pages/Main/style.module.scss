@@ -1,0 +1,10 @@
+@import "src/styles/shared.module";
+
+.mainPage {
+  background: var(--COLORS_BACKGROUND_WHITE);
+}
+
+.title {
+  @include title-1-regular();
+  color: #202020;
+}

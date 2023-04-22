@@ -1,0 +1,9 @@
+@import "src/styles/shared.module";
+
+.loginPage {
+  background: var(--COLORS_BACKGROUND_WHITE);
+}
+
+.title {
+  @include title-1-regular()
+}
