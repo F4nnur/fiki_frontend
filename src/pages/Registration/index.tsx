@@ -11,10 +11,13 @@ const MainPage = () => {
                     <input type="text" placeholder="username"/>
                 </div>
                 <div>
-                    <input type="text" placeholder="пароль"/>
+                    <input type="text" placeholder="email"/>
                 </div>
                 <div>
-                    <input type="text" placeholder="повтор"/>
+                    <input type="text" placeholder="FirstNameLastName"/>
+                </div>
+                <div>
+                    <input type="text" placeholder="Password"/>
                 </div>
                 <div>
                     <button>
