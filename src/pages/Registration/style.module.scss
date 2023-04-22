@@ -1,0 +1,49 @@
+@import "src/styles/shared.module";
+
+.form {
+  &__layout {
+    display: flex;
+    margin: auto auto;
+    flex-direction: column;
+    background: #47A9E5;
+    border-radius: 10px;
+    padding: 40px;
+    width: 30%;
+  }
+  &__wrapper {
+    &_header {
+      font-weight: 400;
+      font-size: 32px;
+      line-height: 32px;
+      padding-bottom: 40px;
+      font-family: 'Ubuntu', system-ui;
+      font-style: normal;
+      color: #FBFBFB;
+      text-align: center;
+    }
+    &_footer {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 16px;
+      font-family: 'Ubuntu', system-ui;
+      font-style: normal;
+      color: #FBFBFB;
+      text-align: center;
+    }
+    input {
+      background: #FBFBFB;
+      border-radius: 10px;
+      border: none;
+      margin-bottom: 40px;
+      height: 40px;
+      color: black;
+    }
+    button {
+      background: #FBFBFB;
+      width: 100%;
+      border-radius: 10px;
+      padding: 13px 10%;
+      margin-bottom: 30px;
+    }
+  }
+}
