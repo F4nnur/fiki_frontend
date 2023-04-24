@@ -1,15 +1,18 @@
 @import "src/styles/shared.module";
+body{
+  margin-top: 50px;
+}
 .form {
   &__mainpage {
     //box-shadow: 0 0 20px 10px #b4e1ff;
     display: flex;
-    margin: auto;
+    margin: 30px;
     flex-direction: column;
     background: #47A9E5;
     border-radius: 10px;
     padding: 40px;
     width: 40%;
-    text-overflow: ellipsis
+    text-overflow: ellipsis;
   }
   &__wrapper {
     &_text {
