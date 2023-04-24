@@ -1,10 +1,59 @@
 @import "src/styles/shared.module";
+.form {
+  &__mainpage {
+    //box-shadow: 0 0 20px 10px #b4e1ff;
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    background: #47A9E5;
+    border-radius: 10px;
+    padding: 40px;
+    width: 40%;
+    text-overflow: ellipsis
+  }
+  &__wrapper {
+    &_text {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    &_description {
+      p {
+        background: #FBFBFB;
+        border-radius: 10px;
+        border: none;
+        margin-bottom: 40px;
+        color: black;
+        padding: 5%;
+      }
+    }
+    &_tittle{
+      p {
+        background: #FBFBFB;
+        border-radius: 10px;
+        border: none;
+        margin-bottom: 40px;
+        color: black;
+        padding: 10px;
+        text-align: center;
+      }
+    }
+    //p {
+    //  background: #FBFBFB;
+    //  border-radius: 10px;
+    //  border: none;
+    //  margin-bottom: 40px;
+    //  height: 40px;
+    //  color: black;
+    //  text-align: center;
+    //}
 
-.mainPage {
-  background: var(--COLORS_BACKGROUND_WHITE);
-}
-
-.title {
-  @include title-1-regular();
-  color: #202020;
+    button {
+      background: #FBFBFB;
+      width: 50%;
+      border-radius: 10px;
+      padding: 13px 10%;
+      margin-bottom: 30px
+    }
+  }
 }
