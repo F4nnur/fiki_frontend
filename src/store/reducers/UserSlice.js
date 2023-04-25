@@ -1,38 +1,43 @@
-import {createSlice} from "@reduxjs/toolkit";
-import userActions from '../actions/User'
+import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 
 const initialState = {
-    user: null,
+    username: '',
+    email: '',
+    password: '',
     isLoading: false
 }
+
+
+export const signUpUser = createAsyncThunk('signup', async(body) => {
+    const response = await fetch('http://localhost:80/users', {
+        method: 'POST',
+        headers: {
+            'Content-Type': "application/json",
+        },
+        body: JSON.stringify(body)
+    })
+    return await response.json()
+})
+
 const UserSlice = createSlice({
     name: 'user',
     initialState: initialState,
     reducers: {},
-    extraReducers: (builder) => {
-        builder
-            .addCase(userActions.register.pending, (state) => {
-                state.isLoading = true
-            })
-            .addCase(userActions.register.fulfilled, (state, action) => {
-                state.user = action.payload
-                state.isLoading = false
-            })
-            .addCase(userActions.register.rejected, (state) => {
-                state.isLoading = false
-            })
-            .addCase(userActions.logIn.pending, (state) =>{
-                state.isLoading = false
-            })
-            .addCase(userActions.logIn.rejected, (state) => {
-                state.isLoading = false
-            })
-            .addCase(userActions.logIn.fulfilled, (state, action) => {
-                state.user = action.payload
-                state.isLoading = false
-            })
+    extraReducers: {
+        [signUpUser.pending]: (state, action) => {
+            state.isLoading = true
+
+        },
+        [signUpUser.rejected]: (state, action) => {
+            state.isLoading = true
+        },
+        [signUpUser.fulfilled]: (state, action) => {
+            state.isLoading = false
+
+        }
     }
 })
 
-// export const {register, LogIN} = UserSlice.actions
+export const {register} = UserSlice.actions
+
 export default UserSlice.reducer

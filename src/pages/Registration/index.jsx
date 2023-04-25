@@ -3,13 +3,11 @@ import s from "./style.module.scss";
 import {ROUTES} from '../../constants/navigation'
 import {useDispatch, useSelector} from "react-redux";
 import {useNavigate} from "react-router-dom";
-import toast from "bootstrap/js/src/toast";
-import register from '../../store/actions/User'
+import {signUpUser} from "../../store/reducers/UserSlice";
 
 const MainPage = () => {
     const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
-    const [FIO, setFIO] = useState('')
     const [password, setPassword] = useState('')
     const [password2, setPassword2] = useState('')
     const dispatch = useDispatch()
@@ -24,15 +22,11 @@ const MainPage = () => {
             const userData = {
                 username,
                 email,
-                FIO,
                 password,
-                role: 1
             }
-            dispatch(register(userData)).unwrap().then((user) => {
-                toast.success('registered new user' + user.username)
-                navigate('/')
-            })
-                .catch(toast.error)
+            console.log(userData)
+            dispatch(signUpUser(userData))
+
         }
 
     }
@@ -57,14 +51,6 @@ const MainPage = () => {
                         placeholder="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value )}
-                    />
-                </div>
-                <div>
-                    <input
-                        type="text"
-                        placeholder="FirstNameLastName"
-                        value={FIO}
-                        onChange={(e) => setFIO(e.target.value )}
                     />
                 </div>
                 <div>

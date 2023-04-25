@@ -1,20 +1,27 @@
 import axios from "axios";
 
 
-const BASE_URL = 'http://localhost:8000/'
+const BASE_URL = 'http://localhost/'
 
-// const appInstance = axios.create({
-//     baseURL: BASE_URL,
-//     withCredentials: true,
-// })
+const appInstance = axios.create({
+    baseURL: BASE_URL,
+    withCredentials: true,
+});
 
-const register = async (userData) => {
-    const response = await axios.post(BASE_URL + 'users', userData)
-    if (response.data){
-        localStorage.setItem('user', JSON.stringify(response.data))
-    }
-    return response.data
-}
+// const register = (userData) => {
+//     return appInstance.post('users/', {userData}).then(response => {
+//         return response.data
+//     })
+// }
+
+
+// const register = async (userData) => {
+//     const response = await axios.post(BASE_URL + 'users', userData)
+//     if (response.data){
+//         localStorage.setItem('user', JSON.stringify(response.data))
+//     }
+//     return response.data
+// }
 
 const logInAPI = async (username, password) => {
     const response = await axios.post(BASE_URL + '/auth/login/', {username, password})
@@ -25,7 +32,7 @@ const logInAPI = async (username, password) => {
 }
 
 const AuthService = {
-    register,
+    // register,
     logInAPI,
 };
 
