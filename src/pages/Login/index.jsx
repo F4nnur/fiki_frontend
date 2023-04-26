@@ -2,9 +2,8 @@ import React, {useState} from "react";
 import s from "./style.module.scss";
 import {ROUTES} from "../../constants/navigation";
 import {useDispatch} from "react-redux";
-import logIn from '../../store/actions/User'
-import toast from "bootstrap/js/src/toast";
 import {useNavigate} from "react-router-dom";
+import userActions from "../../store/actions/User";
 
 const LoginPage = () => {
     const [username, setUsername] = useState('')
@@ -18,11 +17,9 @@ const LoginPage = () => {
             username,
             password
         }
-        dispatch(logIn(userData)).unwrap().then((user) => {
-            toast.success('')
-            navigate('/')
-        })
-            .catch(toast.error)
+
+        dispatch(userActions.logInUser(userData))
+        // navigate('/')
     }
 
 

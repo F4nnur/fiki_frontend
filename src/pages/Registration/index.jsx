@@ -3,7 +3,8 @@ import s from "./style.module.scss";
 import {ROUTES} from '../../constants/navigation'
 import {useDispatch, useSelector} from "react-redux";
 import {useNavigate} from "react-router-dom";
-import {signUpUser} from "../../store/reducers/UserSlice";
+import userActions from '../../store/actions/User';
+
 
 const MainPage = () => {
     const [username, setUsername] = useState('')
@@ -25,7 +26,8 @@ const MainPage = () => {
                 password,
             }
             console.log(userData)
-            dispatch(signUpUser(userData))
+            dispatch(userActions.signUpUser(userData))
+            navigate(ROUTES.LOGIN)
 
         }
 
@@ -71,7 +73,7 @@ const MainPage = () => {
                 </div>
                 <div>
                     <button onClick={RegistrationFunc}>
-                        Sign Up
+                        Зарегестрироваться
                     </button>
                 </div>
                 <div className={s.form__wrapper_footer}>

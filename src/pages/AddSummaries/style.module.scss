@@ -1,0 +1,53 @@
+@import "src/styles/shared.module";
+body{
+  margin-top: 50px;
+}
+.form {
+  &__mainpage {
+    //box-shadow: 0 0 20px 10px #b4e1ff;
+    display: flex;
+    margin: 30px;
+    flex-direction: column;
+    background: #47A9E5;
+    border-radius: 10px;
+    padding: 50px;
+    width: 40%;
+    text-overflow: ellipsis;
+  }
+  &__wrapper {
+    &_text {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    &_description {
+      input {
+        background: #FBFBFB;
+        resize: none;
+        border-radius: 10px;
+        border: none;
+        margin-bottom: 40px;
+        color: black;
+        padding: 10%;
+      }
+    }
+    &_tittle{
+      input {
+        background: #FBFBFB;
+        border-radius: 10px;
+        border: none;
+        margin-bottom: 40px;
+        color: black;
+        padding: 10px;
+        text-align: center;
+      }
+    }
+
+    button {
+      background: #FBFBFB;
+      width: 100%;
+      border-radius: 10px;
+      padding: 13px 10%;
+      margin-bottom: 30px;
+    }
+  }
+}
