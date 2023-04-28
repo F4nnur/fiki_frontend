@@ -5,9 +5,12 @@ import {getSummaries} from "../../store/actions/Summaries";
 
 const MainPage = () => {
     const dispatch = useDispatch()
-    const summaries = useSelector(state => state.summaries)
+    const summaries = useSelector(state => state.summaries.summaries)
+
+
     useEffect(() => {
         dispatch(getSummaries())
+        console.log('----')
     }, [dispatch])
 
     return (
@@ -17,10 +20,10 @@ const MainPage = () => {
                     <div className={s.form__mainpage}>
                         <div className={s.form__wrapper}>
                             <div className={s.form__wrapper_tittle}>
-                                <p>{item.summaries.title}</p>
+                                <p>{item.title}</p>
                             </div>
                             <div className={s.form__wrapper_description}>
-                                <p className={s.form__wrapper_text}>{item.summaries.description}</p>
+                                <p className={s.form__wrapper_text}>{item.description}</p>
                             </div>
                             <div>
                                 <button>

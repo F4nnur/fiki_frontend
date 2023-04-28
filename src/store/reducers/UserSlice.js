@@ -24,7 +24,6 @@ const UserSlice = createSlice({
     extraReducers: {
         [userActions.signUpUser.pending]: (state, action) => {
             state.isLoading = true
-
         },
         [userActions.signUpUser.rejected]: (state, action) => {
             state.isLoading = true
@@ -43,8 +42,8 @@ const UserSlice = createSlice({
             state.isLoading = false
             state.access_token = access_token
             state.refresh_token = refresh_token
-            localStorage.setItem('access_token', JSON.stringify(access_token))
-            localStorage.setItem('refresh_token', JSON.stringify(refresh_token))
+            localStorage.setItem('access_token', access_token)
+            localStorage.setItem('refresh_token', refresh_token)
 
         }
     }

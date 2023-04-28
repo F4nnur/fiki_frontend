@@ -1,16 +1,23 @@
 import React, {useState} from 'react';
 import s from "../AddSummaries/style.module.scss";
+import {useDispatch} from "react-redux";
+import {addSummaries} from "../../store/actions/Summaries";
 
 
 const AddSummaries = () => {
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
+    const dispatch = useDispatch()
 
     const handleSubmit = () => {
         const data = {
             title,
-            description
+            description,
+            user_id: 4
         }
+        dispatch(addSummaries(data))
+        setTitle('')
+        setDescription('')
 
     }
 
@@ -18,16 +25,20 @@ const AddSummaries = () => {
         <div className={s.form__mainpage}>
             <div className={s.form__wrapper}>
                 <div className={s.form__wrapper_tittle}>
-                    <input/>
+                    <input
+                        value={title}
+                        onChange={(e) => setTitle(e.target.value)}
+                    />
                 </div>
                 <div className={s.form__wrapper_description}>
                     <input
                         className={s.form__wrapper_text}
-                        onkeydown="this.style.width = ((this.value.length + 1) * 8) + 'px';"
+                        value={description}
+                        onChange={(e) => setDescription(e.target.value)}
                     />
                 </div>
                 <div>
-                    <button>
+                    <button onClick={handleSubmit}>
                         Добавить
                     </button>
                 </div>

@@ -1,17 +1,35 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
+import {fetchSummaries} from "../../api/api";
 
 
-const token = localStorage.getItem('access_token')
-console.log(token)
-export const getSummaries = createAsyncThunk('summaries', async (body) => {
+
+const token = JSON.stringify(localStorage.getItem('access_token'))
+
+export const getSummaries = createAsyncThunk('summaries', fetchSummaries)
+
+// export async function getSummaries () {
+//     const newToken = token.split('"')[1]
+//     await axios.get(
+//         'http://localhost:80/summaries',
+//         {
+//             headers: {
+//                 'Authorization': "Bearer " + newToken
+//             }
+//         }
+//         )
+//         .then(response => {
+//             console.log('response', response)
+//         })
+// }
+
+export const addSummaries = createAsyncThunk('add-summaries', async (body) => {
     const response = await fetch('http://localhost:80/summaries', {
-        method: 'GET',
+        method: 'POST',
         headers: {
-            'Content-Type': 'application/json',
+            'Content-Type': "application/json",
             'Authorization': "Bearer" + token
-        }
+        },
+        body: JSON.stringify(body)
     })
-    const data = response.json()
-    console.log(data)
-    return await data
+    return await response.json()
 })

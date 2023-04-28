@@ -19,7 +19,7 @@ const LoginPage = () => {
         }
 
         dispatch(userActions.logInUser(userData))
-        // navigate('/')
+        navigate('/')
     }
 
 
@@ -49,7 +49,7 @@ const LoginPage = () => {
                     </button>
                 </div>
                 <div className={s.form__wrapper_footer}>
-                    <a href={ROUTES.LOGIN}>Sign Up</a>
+                    <a href={ROUTES.MAIN}>Sign In</a>
                 </div>
             </div>
         </div>
