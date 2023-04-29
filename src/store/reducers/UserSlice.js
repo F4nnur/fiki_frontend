@@ -22,20 +22,20 @@ const UserSlice = createSlice({
         },
     },
     extraReducers: {
-        [userActions.signUpUser.pending]: (state, action) => {
+        [userActions.signUpUser.pending]: (state) => {
             state.isLoading = true
         },
-        [userActions.signUpUser.rejected]: (state, action) => {
+        [userActions.signUpUser.rejected]: (state) => {
             state.isLoading = true
         },
-        [userActions.signUpUser.fulfilled]: (state, action) => {
+        [userActions.signUpUser.fulfilled]: (state) => {
             state.isLoading = false
         },
 
-        [userActions.logInUser.pending]: (state, action) => {
+        [userActions.logInUser.pending]: (state) => {
             state.isLoading = true
         },
-        [userActions.logInUser.rejected]: (state, action) => {
+        [userActions.logInUser.rejected]: (state) => {
             state.isLoading = true
         },
         [userActions.logInUser.fulfilled]: (state, {'payload': {access_token, refresh_token}}) => {

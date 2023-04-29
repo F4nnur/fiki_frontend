@@ -31,7 +31,9 @@ const AddSummaries = () => {
                     />
                 </div>
                 <div className={s.form__wrapper_description}>
-                    <input
+                    <textarea
+                        cols={100}
+                        rows={4}
                         className={s.form__wrapper_text}
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}

@@ -1,4 +1,5 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
+import {getCurrentUser} from "../../api/api";
 
 const signUpUser = createAsyncThunk('signup', async(body) => {
     const response = await fetch('http://localhost:80/users', {
@@ -22,9 +23,11 @@ const logInUser = createAsyncThunk('logIn', async(body) => {
     return await response.json()
 })
 
+const getUser = createAsyncThunk('currentUser', getCurrentUser)
 
 const userActions = {
     signUpUser,
-    logInUser
+    logInUser,
+    getUser
 }
 export default userActions;

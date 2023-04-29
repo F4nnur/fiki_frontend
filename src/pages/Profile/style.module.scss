@@ -1,0 +1,46 @@
+.mainFrame {
+  &__layout {
+    display: flex;
+    margin: 5% auto;
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 40px;
+    width: 30%;
+    align-items: center;
+  }
+  &__buttons {
+    width: 50%;
+  }
+
+  &__button_change {
+    cursor: pointer;
+    padding: 12px;
+    background-color: #47A9E5;
+    color: #000000;
+    text-align: center;
+    border-radius: 10px;
+    margin: 10px;
+  }
+  &__button_delete{
+    cursor: pointer;
+    padding: 10px;
+    background-color: #B53939;
+    color: #FBFBFB;
+    text-align: center;
+    border-radius: 10px;
+  }
+  &__paragraph_block {
+    padding: 8px;
+    margin: 12px;
+    background: #47A9E5;
+    border-radius: 10px;
+  }
+  &__elements {
+    p {
+      background-color: #FBFBFB;
+      padding: 10px;
+      border-radius: 10px;
+      width: 100%;
+    }
+  }
+}
