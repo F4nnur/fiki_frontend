@@ -19,7 +19,7 @@ const LoginPage = () => {
         }
 
         dispatch(userActions.logInUser(userData))
-        navigate('/')
+        navigate(ROUTES.MAIN)
     }
 
 

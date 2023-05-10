@@ -20,6 +20,7 @@ const userProfileSlice = createSlice({
         [userActions.getUser.fulfilled]: (state, action) => {
             state.isLoading = false
             state.userData.push(action.payload)
+            localStorage.setItem('user_id', action.payload.id)
         }
     }
 })

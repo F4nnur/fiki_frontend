@@ -2,19 +2,16 @@ import React, {useEffect} from "react";
 import s from "./style.module.scss";
 import {useDispatch, useSelector} from "react-redux";
 import {getSummaries} from "../../store/actions/Summaries";
+import userActions from "../../store/actions/User";
 const MainPage = () => {
-    // const navigate = useNavigate()
-    // const user = useSelector(state => state.user)
     const dispatch = useDispatch()
     const summaries = useSelector(state => state.summaries.summaries)
 
 
     useEffect(() => {
-        //Todo: Сделать на проверку и обновление токенов
-        // if (!user.access_token){
-        //     navigate('/login')
-        // }
         dispatch(getSummaries())
+        setTimeout(6000)
+        dispatch(userActions.getUser())
     }, [dispatch])
 
     return (
